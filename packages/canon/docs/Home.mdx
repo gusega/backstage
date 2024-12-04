@@ -1,11 +1,19 @@
 import { Unstyled } from '@storybook/blocks';
-import { Columns, Text, ComponentStatus, Banner } from './components';
+import {
+  Columns,
+  Text,
+  ComponentStatus,
+  Banner,
+  Title,
+  Roadmap,
+} from './components';
+import { list } from './components/Roadmap/list';
 
 <Unstyled>
 
 <img src="header.png" style={{ width: '100%', marginTop: '-16px' }} />
 
-<Text style={{ marginTop: '64px' }}>
+<Text style={{ marginTop: '64px', marginBottom: '24px' }}>
   Welcome to the Canon, the new design library for Backstage plugins. This
   project is still under active development but we will make sure to document
   the API as we go. We are aiming to improve the general UI of Backstage and
@@ -18,23 +26,41 @@ import { Columns, Text, ComponentStatus, Banner } from './components';
   will change until we reach a stable release.
 </Banner>
 
-<Columns style={{ marginTop: '64px' }}>
-  <ComponentStatus
-    name="Theming system"
-    status="inProgress"
-    link="/?path=/docs/theme--docs"
-  />
-  <ComponentStatus name="Storybook setup" status="inProgress" />
-  <ComponentStatus name="Tokens" status="inProgress" />
+<Title style={{ marginTop: '48px' }} type="h2">
+  Component Status
+</Title>
+<Text>
+  We are still in the process of documenting the API and building the
+  components. You can use the statuses below to see what is ready and what is
+  coming soon. If there is a component missing that you need, please let us know
+  by opening an issue on GitHub.
+</Text>
+
+<Columns style={{ marginTop: '32px' }}>
   <ComponentStatus
     name="Box"
-    status="inProgress"
+    status="alpha"
     link="/?path=/docs/components-box--docs"
+  />
+  <ComponentStatus
+    name="Stack"
+    status="alpha"
+    link="/?path=/docs/components-stack--default"
+  />
+  <ComponentStatus
+    name="Inline"
+    status="alpha"
+    link="/?path=/story/components-inline--default"
   />
   <ComponentStatus
     name="Button"
     status="inProgress"
     link="/?path=/docs/components-button--docs"
+  />
+  <ComponentStatus
+    name="Icon"
+    status="alpha"
+    link="/?path=/docs/components-icon--docs"
   />
   <ComponentStatus name="Input" status="notStarted" />
   <ComponentStatus name="Select" status="notStarted" />
@@ -45,5 +71,11 @@ import { Columns, Text, ComponentStatus, Banner } from './components';
   <ComponentStatus name="Header" status="notStarted" />
   <ComponentStatus name="Tabs" status="notStarted" />
 </Columns>
+
+<Title style={{ marginTop: '48px' }} type="h2">
+  Roadmap
+</Title>
+
+<Roadmap list={list} />
 
 </Unstyled>
