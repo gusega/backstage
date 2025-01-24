@@ -382,8 +382,8 @@ export const BorderRadius: Story = {
 export const Border: Story = {
   args: {
     style: {
-      background: 'var(--canon-surface-1)',
-      color: 'var(--canon-text-primary)',
+      background: 'var(--canon-bg-elevated)',
+      color: 'var(--canon-fg-text-primary)',
       padding: '4px 8px',
       width: '80px',
       height: '32px',
