@@ -29,9 +29,14 @@ const meta = {
       control: 'select',
       options: ['small', 'medium'],
     },
+    variant: {
+      control: 'select',
+      options: ['primary', 'secondary'],
+    },
   },
   args: {
     size: 'medium',
+    variant: 'primary',
   },
 } satisfies Meta<typeof Button>;
 
@@ -57,9 +62,6 @@ export const Variants: Story = {
       <Button iconStart="cloud" variant="secondary">
         Button
       </Button>
-      <Button iconStart="cloud" variant="tertiary">
-        Button
-      </Button>
     </Flex>
   ),
 };
@@ -83,8 +85,8 @@ export const WithIcons: Story = {
   render: args => (
     <Flex align="center">
       <Button {...args} iconStart="cloud" />
-      <Button {...args} iconEnd="chevronRight" />
-      <Button {...args} iconStart="cloud" iconEnd="chevronRight" />
+      <Button {...args} iconEnd="chevron-right" />
+      <Button {...args} iconStart="cloud" iconEnd="chevron-right" />
     </Flex>
   ),
 };
@@ -94,10 +96,10 @@ export const FullWidth: Story = {
     children: 'Button',
   },
   render: args => (
-    <Flex style={{ width: '300px' }}>
+    <Flex direction="column" gap="4" style={{ width: '300px' }}>
       <Button {...args} iconStart="cloud" />
-      <Button {...args} iconEnd="chevronRight" />
-      <Button {...args} iconStart="cloud" iconEnd="chevronRight" />
+      <Button {...args} iconEnd="chevron-right" />
+      <Button {...args} iconStart="cloud" iconEnd="chevron-right" />
     </Flex>
   ),
 };
@@ -107,6 +109,12 @@ export const Disabled: Story = {
     children: 'Button',
     disabled: true,
   },
+  render: args => (
+    <Flex direction="row" gap="4">
+      <Button {...args} variant="primary" />
+      <Button {...args} variant="secondary" />
+    </Flex>
+  ),
 };
 
 export const Responsive: Story = {
@@ -115,7 +123,6 @@ export const Responsive: Story = {
     variant: {
       initial: 'primary',
       sm: 'secondary',
-      md: 'tertiary',
     },
     size: {
       xs: 'small',
@@ -124,7 +131,7 @@ export const Responsive: Story = {
   },
 };
 
-const variants: string[] = ['primary', 'secondary', 'tertiary'];
+const variants: string[] = ['primary', 'secondary'];
 
 export const Playground: Story = {
   args: {
@@ -138,14 +145,6 @@ export const Playground: Story = {
           {['small', 'medium'].map(size => (
             <Flex align="center" key={size}>
               <Button
-                iconStart="cloud"
-                variant={variant as ButtonProps['variant']}
-                size={size as ButtonProps['size']}
-              >
-                Button
-              </Button>
-              <Button
-                iconEnd="chevronRight"
                 variant={variant as ButtonProps['variant']}
                 size={size as ButtonProps['size']}
               >
@@ -153,10 +152,47 @@ export const Playground: Story = {
               </Button>
               <Button
                 iconStart="cloud"
-                iconEnd="chevronRight"
+                variant={variant as ButtonProps['variant']}
+                size={size as ButtonProps['size']}
+              >
+                Button
+              </Button>
+              <Button
+                iconEnd="chevron-right"
+                variant={variant as ButtonProps['variant']}
+                size={size as ButtonProps['size']}
+              >
+                Button
+              </Button>
+              <Button
+                iconStart="cloud"
+                iconEnd="chevron-right"
                 style={{ width: '200px' }}
                 variant={variant as ButtonProps['variant']}
                 size={size as ButtonProps['size']}
+              >
+                Button
+              </Button>
+              <Button
+                variant={variant as ButtonProps['variant']}
+                size={size as ButtonProps['size']}
+                disabled
+              >
+                Button
+              </Button>
+              <Button
+                iconStart="cloud"
+                variant={variant as ButtonProps['variant']}
+                size={size as ButtonProps['size']}
+                disabled
+              >
+                Button
+              </Button>
+              <Button
+                iconEnd="chevron-right"
+                variant={variant as ButtonProps['variant']}
+                size={size as ButtonProps['size']}
+                disabled
               >
                 Button
               </Button>
